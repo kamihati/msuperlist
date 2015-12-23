@@ -53,7 +53,7 @@ class NewVisitorTest(unittest.TestCase):
 
 		# 页面再次刷新。她的清单中显示了这两个待办事项
 		self.check_for_row_in_list_table('1: Buy peacock feathers')
-		self.check_for_row_in_list_table('2: Use peacock featers to make a fly')
+		self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
 		# 伊迪丝想知道这个网站是否会记住他的清单
 
