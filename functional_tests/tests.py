@@ -43,7 +43,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# 这个页面的代办时间清单中显示了“1: Buy peacock feathers”
 		inputbox.send_keys(Keys.ENTER)
 		edith_list_url = self.browser.current_url
-		self.assertRegex(edith_list_url, '/lists/.+')
+		self.assertRegex(edith_list_url, '/lists/\d+/')
 		self.check_for_row_in_list_table('1: Buy peacock feathers')
 
 		# 页面中又显示了一个文本框，可以输入其他的待办事项
@@ -59,8 +59,8 @@ class NewVisitorTest(LiveServerTestCase):
 
 		# 现在一个叫做弗朗西斯的新用户访问了网站
 
-		## 我们使用一个新浏览器会话
-		## 确保伊迪丝的信息不会从cookie中泄漏出来
+		# # 我们使用一个新浏览器会话
+		# # 确保伊迪丝的信息不会从cookie中泄漏出来
 		self.browser.quit()
 		self.browser = webdriver.Firefox()
 
@@ -74,7 +74,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# 弗朗西斯输入一个新待办事项，新建一个清单
 		# 他不像伊迪斯那样兴趣盎然
 		inputbox = self.browser.find_element_by_id('id_new_item')
-		inputbox.send_keys('Buy mild')
+		inputbox.send_keys('Buy milk')
 		inputbox.send_keys(Keys.ENTER)
 
 		# 弗朗西斯获得了他的唯一URL
